@@ -1,0 +1,470 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Amaze UI Admin table Examples</title>
+    <meta name="description" content="minions">
+    <meta name="keywords" content="table">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/app.js"></script>
+    <style type="text/css"> 
+    body{
+      margin: 0;
+    }
+    .wrapper{
+      position: relative;
+    }
+    .bkg_img{
+      width: 100%;
+    }
+
+    .question_img{
+      position: absolute;
+      width: 55%;
+      top:17%;
+      left:23%;
+    }
+
+    .wave_img{
+      position: absolute;
+      width: 88%;
+      top:29%;
+      left:6%;
+    }
+    .speak_img{
+              position: absolute;
+      width: 40%;
+      top:19%;
+      left:33%;
+    }
+
+    .canvas_speak{
+      height:25%;
+    }
+.btn_record{
+	 background-image: url("http://7xlago.com2.z0.glb.qiniucdn.com/img/recording_raw.png");
+   -moz-background-size:100% 100%;
+   background-size:100% 100%;
+}
+.btn_play{
+   background-image: url("http://7xlago.com2.z0.glb.qiniucdn.com/img/play.png");
+   -moz-background-size:100% 100%;
+   background-size:100% 100%;
+}
+.btn_pause{
+   background-image: url("http://7xlago.com2.z0.glb.qiniucdn.com/img/pause.png");
+   -moz-background-size:100% 100%;
+   background-size:100% 100%;
+}
+.btn_basic{
+  position: absolute;
+  width: 22%;
+  height: 13%;
+  top:51%;
+  left:39%;
+}
+  #timer{
+    width: 25%;
+    height: 6.5%;
+    text-align: center;
+  font-size: 180%;
+  position: absolute;
+  top:28.3%;
+  left:37.7%;
+  }
+
+  #time_warn{
+    position: absolute;
+    font-size: 155%;
+    left: 86%;
+    top:40%;
+    color: #ff8c3b;
+  }
+  #recordAgain{
+      background: url("http://7xlago.com2.z0.glb.qiniucdn.com/img/recordAgain.png") no-repeat;
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    position: absolute;
+    width: 35%;
+   height: 6.4%;
+  top:68%;
+  left:33%;
+text-align: center;
+font-size: 140%;
+color: white;
+  }
+#img_bello{
+  position: absolute;
+  width:22%;
+  left:52%;
+  top:12.2%;
+}
+div p{
+  width: 100%;
+  text-align: center;
+  font-size: 100%;
+  color: #626160;
+   -webkit-margin-before: 0.7em;
+  -webkit-margin-after: 0.7em;
+}
+.text{
+  position: absolute;
+  top: 70%;
+    width: 100%;
+}
+.text2{
+  position: absolute;
+  top: 77%;
+    width: 100%;
+}
+div p span{
+  color: #ff8c3b;
+  font-size: 136%;
+}
+
+
+.spinner {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top:28%;
+}
+ 
+.spinner > div {
+  width: 20px;
+  height: 20px;
+  background-color: #ff8c3b;
+ margin-left: 10px;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.5s infinite ease-in-out;
+  animation: bouncedelay 1.5s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+ 
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s;
+}
+ 
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.6s;
+  animation-delay: -0.6s;
+}
+.spinner .bounce3 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+ 
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+ 
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+    	</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+  <img class="bkg_img" src="http://7xlago.com2.z0.glb.qiniucdn.com/img/background.png">
+  <img class="question_img"  src="http://7xlago.com2.z0.glb.qiniucdn.com/img/question-high.gif">
+  <img class="wave_img"  src="http://7xlago.com2.z0.glb.qiniucdn.com/img/wave.gif">
+  <div id="timer" >0 : 00</div>
+  <div id="time_warn">10"</div>
+  <div class="spinner">
+  <div class="bounce1"></div>
+  <div class="bounce2"></div>
+  <div class="bounce3"></div>
+</div>
+  <img id="img_speak" class="speak_img " >
+  <canvas id="canvas" class="speak_img canvas_speak">Your browser does not support the HTML5 canvas tag.</canvas>
+  <img id="img_bello" src="http://7xlago.com2.z0.glb.qiniucdn.com/img/BELLO.png">
+<div  class="btn_basic btn_record" ></div>
+<div id="btn_play" class="btn_basic btn_play"></div>
+<div class="btn_basic btn_pause"></div>
+<div class="btn_basic" id="beMinions"></div>
+<div id="recordAgain" class="verticalcenter"> 重 录 </div>
+<div class="text"><p ><span>你</span>是谁?怎么找到我们的?说话!快说话!</p>
+<p >想加入我们小黄人?</p>
+<p >看你长得也不像!说话!</p>
+<p >看看你会不会说我们的话!banana!</p>
+</div>
+<div class="text2"><p class="p1">恭喜你!成为外国小黄人!</p>
+<p >你有义务保护小黄人群体</p>
+<p ><span>分享出去</span> 扩大我们的数量吧!</p>
+<p >让世界充满小黄人! banana!</p>
+</div>
+</div>
+
+<audio preload="preload" controls id="car_audio" src="" hidden="hidden" ></audio>
+    <script type="text/javascript">
+var seconds = 0
+var timer 
+var localId
+var minions = document.getElementById("beMinions")
+var playminions = document.getElementById("btn_play")
+var recordagain = document.getElementById("recordAgain")
+var bello = document.getElementById("img_bello")
+var timeWarn = document.getElementById("time_warn")
+var textRecord = document.querySelector(".text")
+var textPlay = document.querySelector(".text2")
+var imgQuestion = document.querySelector(".question_img")
+var spinner = document.querySelector(".spinner")
+
+minions.hidden = "hidden"
+bello.hidden = "hidden"
+timeWarn.hidden = "hidden"
+recordagain.hidden = "hidden"
+textPlay.hidden = "hidden"
+spinner.hidden = "hidden"
+
+$("document").ready(function(){
+    document.getElementById("img_speak").hidden = "hidden"
+    document.getElementById("canvas").hidden = "hidden"
+      document.getElementById("timer").hidden = "hidden"
+    $(".btn_play").attr("hidden","hidden")
+    $(".btn_pause").attr("hidden","hidden")
+    $(".wave_img").attr("hidden","hidden")
+ 
+})
+
+
+     window.onload=function (){
+      var vc =document.querySelectorAll(".verticalcenter")
+for(var i=0; i<vc.length; i++) {
+  console.log(vc[0])
+  vc[i].style.cssText = "line-height:" + vc[i].clientHeight + "px;"
+}
+  var img_speak =   document.getElementById("img_speak")
+img_speak.src = "http://7xlago.com2.z0.glb.qiniucdn.com/img/speak.gif"
+img_speak.onload =  function ()
+        {
+             var c=document.getElementById("canvas");
+              var ctx=c.getContext("2d");
+              ctx.drawImage(img_speak,0,0,284,150)
+        }
+
+     }
+recordagain.onclick = function(e){
+   document.getElementById("canvas").hidden = "hidden"
+  document.getElementById("img_speak").hidden = "hidden"
+document.getElementById('car_audio').pause(); 
+  minions.addEventListener("touchend", onRecordEnd, false)
+textRecord.hidden = ""
+recordagain.hidden = "hidden"
+textPlay.hidden = "hidden"
+minions.hidden = ""
+playminions.hidden = "hidden"
+bello.hidden = "hidden"
+}
+var onplayEnd = function (e){
+document.getElementById("img_speak").hidden = "hidden"
+document.getElementById("canvas").hidden = ""
+}
+document.getElementById('car_audio').addEventListener("ended", onplayEnd, false)
+
+playminions.onclick = function(e){
+    document.getElementById('car_audio').play();
+    document.getElementById("canvas").hidden = "hidden"
+    document.getElementById("img_speak").hidden = "" 
+       
+ document.addEventListener("WeixinJSBridgeReady", function () {
+        WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+  document.getElementById('car_audio').play();
+        });
+    }, false)
+  e.stopPropagation(); 
+  e.preventDefault(); 
+return false
+}
+function setTimer(){
+  if (seconds >= 30){
+minions.removeEventListener("touchend", onRecordEnd, false)
+onRecordEnd()
+return 
+  }
+if (seconds >= 20){
+  timeWarn.hidden = ""
+  timeWarn.innerText =  29 - seconds + '"'
+}
+  seconds = seconds + 1
+  var  unit = seconds % 10
+  var decade = seconds / 10
+   document.getElementById("timer").innerText = "0 : " +parseInt(decade)  + unit
+ }
+ function realend(){
+    minions.hidden = "hidden"
+  wx.stopRecord({
+      success: function (res) {
+        document.getElementById("timer").hidden = "hidden"
+  document.getElementById("timer").innerText = "0 : 00"
+   
+  window.clearInterval(timer)
+  timeWarn.hidden = "hidden"
+ seconds = 0
+ spinner.hidden = ""
+  $("#beMinions").attr("style","")
+  $(".wave_img").attr("hidden","hidden")
+        localId = res.localId;
+wx.uploadVoice({
+    localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
+    isShowProgressTips: 0, // 默认为1，显示进度提示
+        success: function (res) {
+        var serverId = res.serverId; // 返回音频的服务器端ID
+        var media = {MediaId:serverId}
+        postData("/share/getmediaid",true,media,loadAudio)
+    }
+})
+      },
+      fail: function (res) {
+        minions.hidden = ""
+        alert(JSON.stringify(res));
+      }
+    })
+}
+
+ var onRecordEnd =function(e){
+ setTimeout("realend()", 250 )
+}
+ 
+minions.ontouchstart = function(e){
+
+  $("#beMinions").css({
+    "background-color":"grey",
+  "filter":"alpha(opacity=50)",
+"-moz-opacity":"0.5", 
+"opacity":"0.5",
+"-moz-border-radius": "50%", 
+"-webkit-border-radius": "50%" 
+  })
+  $(".wave_img").removeAttr("hidden")
+  $(".question_img").attr("hidden","hidden")
+  timer = setInterval("setTimer()",1000)
+  document.getElementById("timer").hidden = ""
+	wx.startRecord({
+      cancel: function () {
+        alert('cancel');
+      }
+    })
+ e.stopPropagation(); 
+  e.preventDefault(); 
+return false
+}
+
+minions.ontouch = function(e){
+ e.stopPropagation(); 
+  e.preventDefault(); 
+return false
+}
+minions.addEventListener("touchend", onRecordEnd, false)
+
+function preparePlay(){
+  spinner.hidden = "hidden"
+  playminions.hidden = ""
+  minions.hidden = "true"
+  bello.hidden = ""
+textPlay.hidden = ""
+textRecord.hidden = "hidden"
+recordagain.hidden = ""
+  $("#canvas").removeAttr("hidden")
+ var vc =document.querySelectorAll(".verticalcenter")
+for(var i=0; i<vc.length; i++) {
+  console.log(vc[0])
+  vc[i].style.cssText = "line-height:" + vc[i].clientHeight + "px;"
+}
+}
+
+ 
+function loadAudio(josnResult){
+  initWxShare( window.location.host  + '/share/minions/'+josnResult.ShareId+"/")
+  document.getElementById('car_audio').src=josnResult.Url
+ setTimeout("preparePlay()", 200 )
+}
+   
+    wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId:  {{.WxConfigs.AppId}}, // 必填，公众号的唯一标识
+        timestamp: {{.WxConfigs.Timestamp}}, // 必填，生成签名的时间戳
+        nonceStr: {{.WxConfigs.NonceStr}}, // 必填，生成签名的随机串
+        signature:  {{.WxConfigs.Signature}}, // 必填，签名，见附录1
+        jsApiList: {{.WxConfigs.JsApiList}} // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+function initWxShare (url) {
+   wx.onMenuShareTimeline({
+    title: '大家快来玩小黄人吧！', // 分享标题
+    link:  url, // 分享链接
+    imgUrl: 'http://7xlago.com2.z0.glb.qiniucdn.com/img/icon.jpg', // 分享图标
+    success: function () { 
+    },
+    cancel: function () {        
+    }
+})
+   wx.onMenuShareAppMessage({
+    title: '大家快来玩小黄人吧！', // 分享标题
+    desc: '大家快来玩小黄人吧！', // 分享描述
+    link:  url, // 分享链接
+    imgUrl: 'http://7xlago.com2.z0.glb.qiniucdn.com/img/icon.jpg', // 分享图标
+    type: '', // 分享类型,music、video或link，不填默认为link
+    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+    success: function () { 
+    },
+    cancel: function () { 
+    }
+})
+ }
+    wx.ready(function(){
+     /* wx.checkJsApi({
+    jsApiList: ["startRecord", "stopRecord", "onRecordEnd", "playVoice", "pauseVoice", "stopVoice", "uploadVoice", "downloadVoice", "onMenuShareTimeline", "onMenuShareAppMessage", "translateVoice"], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+    success: function(res) {
+        alert(res.errMsg)
+    }
+})*/
+initWxShare(window.location.host + window.location.pathname)
+
+ wx.startRecord({
+   success: function (res) {
+    
+      wx.stopRecord({
+      success: function (res) {
+         minions.hidden = ""
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+         minions.hidden = ""
+      }
+    });
+      },
+      cancel: function () {
+        alert('开启微信录音权限才能变身小黄人哦');
+      }
+    });
+})
+wx.error(function(res){
+
+   alert(res)
+})
+
+    </script>
+</body>
+
+</html>

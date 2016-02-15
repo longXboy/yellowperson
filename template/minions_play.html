@@ -1,0 +1,732 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>twinkle</title>
+    <meta name="description" content="minions">
+    <meta name="keywords" content="table">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/js/app.js"></script>
+    <style type="text/css"> 
+    body{
+      margin: 0;
+    }
+    .wrapper{
+      position: relative;
+    }
+    .bkg_img{
+      width: 100%;
+    }
+
+    .question_img{
+      position: absolute;
+      width: 55%;
+      top:5.3%;
+      left:23%;
+       z-index: 10;
+    }
+
+    .wave_img{
+      position: absolute;
+      width: 88%;
+      top:9%;
+      left:6%;
+    }
+    .speak_img{
+              position: absolute;
+      width: 40.3%;
+      top:5.6%;
+      left:33%;
+        z-index: 2;
+    }
+
+    .canvas_speak{
+      height:7.6%;
+      z-index: 1;
+    }
+.btn_record{
+	 background-image: url("http://7xlago.com2.z0.glb.qiniucdn.com/img/recording_raw.png");
+   -moz-background-size:100% 100%;
+   background-size:100% 100%;
+}
+.btn_play{
+   background-image: url("http://7xlago.com2.z0.glb.qiniucdn.com/img/play.png");
+   -moz-background-size:100% 100%;
+   background-size:100% 100%;
+}
+/*.btn_pause{
+   background-image: url("http://7xlago.com2.z0.glb.qiniucdn.com/img/pause.png");
+   -moz-background-size:100% 100%;
+   background-size:100% 100%;
+}*/
+.btn_basic{
+  position: absolute;
+  width: 22%;
+  height: 4.12%;
+  top:15.7%;
+  left:39%;
+}
+  #timer{
+    width: 25%;
+    height: 6.5%;
+    text-align: center;
+  font-size: 180%;
+  position: absolute;
+  top:9%;
+  left:37.7%;
+  }
+
+  #time_warn{
+    position: absolute;
+    font-size: 155%;
+    left: 86%;
+    top:12.5%;
+    color: #ff8c3b;
+  }
+  #download{
+      background: url("http://7xlago.com2.z0.glb.qiniucdn.com/img/recordAgain.png") no-repeat;
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    position: absolute;
+    width: 49%;
+   height: 2.65%;
+  top:29.9%;
+  left:25.5%;
+text-align: center;
+font-size: 120%;
+color: white;
+  }
+#img_bello{
+  position: absolute;
+  width:22%;
+  left:52%;
+  top:4%;
+}
+div p{
+  width: 100%;
+  text-align: center;
+  font-size: 100%;
+  color: #626160;
+   -webkit-margin-before: 0.7em;
+  -webkit-margin-after: 0.7em;
+}
+.text{
+  position: absolute;
+  top: 20%;
+    width: 100%;
+}
+.text2{
+  position: absolute;
+  top: 24.7%;
+    width: 100%;
+}
+div p .you{
+  color: #ff8c3b;
+  font-size: 136%;
+}
+
+.text3{
+  position: absolute;
+  top:36%;
+  font-size: 100%;
+  width: 100%;
+}
+
+
+.spinner {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top:9%;
+}
+ 
+.spinner > div {
+  width: 20px;
+  height: 20px;
+  background-color: #ff8c3b;
+ margin-left: 10px;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.5s infinite ease-in-out;
+  animation: bouncedelay 1.5s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+ 
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s;
+}
+ 
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.6s;
+  animation-delay: -0.6s;
+}
+.spinner .bounce3 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+ 
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+ 
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+.presents_img{
+  width: 100%;
+}
+
+.sperate{
+  color: #979796;
+  font-size: 110%;
+  text-align: center;
+left: 2%;
+  position: absolute;
+    top:28.2%;
+  width: 96%;
+}
+@media screen and (max-width: 321px)  { 
+	.sperate{
+  color: #979796;
+  font-size: 90%;
+  text-align: center;
+left: 2%;
+  position: absolute;
+    top:28.2%;
+  width: 96%;
+}
+ }  
+.sperate img{
+  margin-top: 2.5%;
+  width: 17%;
+}
+.sperate img:first-child{
+  float: left;
+}
+.sperate img:last-child{
+  float: right;
+}
+
+#recordAgain{
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top:22.7%;
+  font-size: 130%;
+    color: #ff8c3b;
+    text-decoration:underline;
+}
+.text_down{
+  z-index:9999;
+  position: fixed;
+  top: 31%;
+  color: white;
+  width: 100%;
+  text-align: center;
+  font-size: 110%;
+}
+.arrow{
+  position: fixed;
+  top: 3.5%;
+  left: 70%;
+  z-index: 1000;
+  height: 24%;
+}
+#mask{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  background-color:black; z-index:999; -moz-opacity: 0.80; opacity:.80; filter: alpha(opacity=80);
+}
+
+.audio_minions{
+	position: absolute;
+	left: 39.9%;
+	top:56.3%;
+	height: 10%;
+
+}
+
+audio{
+                filter:alpha(opacity=0); /*ie滤�~U~\��~L�~@~O�~X~N度50%*/
+-moz-opacity:0; /*Firefox��~A�~\~I��~L�~@~O�~X~N度50%*/
+opacity:0;/*�~E���~V��~L�~@~O�~X~N度50%*/
+}
+
+ @media screen and (max-height :579px)  { 
+	.audio_minions{
+	position: absolute;
+	left: 39.9%;
+	top:56%;
+	width: 10%;
+	height: 10%;
+
+}
+ }  
+
+ @media screen and (max-height: 481px)  { 
+	.audio_minions{
+	position: absolute;
+	left: 39.9%;
+	top:70%;
+	width: 10%;
+	height: 10%;
+
+}
+ }  
+
+    	</style>
+</head>
+
+<body>
+<div class="wrapper">
+<div id="inner1">
+  <div id="mask" hidden onclick="removemask()"></div>
+<div id="weixin" hidden class="text_down" >戳右上角，选择“在浏览器中打开”，等你哦！</div>
+  <img class="arrow" id="arrow_img" hidden src="http://7xl2yp.com2.z0.glb.qiniucdn.com/img/arrow.png" >
+  <img class="bkg_img" src="http://7xlago.com2.z0.glb.qiniucdn.com/img/background.png">
+  <img class="question_img" >
+  <img class="wave_img"  src="http://7xlago.com2.z0.glb.qiniucdn.com/img/wave.gif">
+  <div id="timer" >0 : 00</div>
+  <div id="time_warn">10"</div>
+  <div class="spinner">
+  <div class="bounce1"></div>
+  <div class="bounce2"></div>
+  <div class="bounce3"></div>
+</div>
+  <img id="img_speak" class="speak_img " >
+  <canvas id="canvas"  class="speak_img canvas_speak">Your browser does not support the HTML5 canvas tag.</canvas>
+  <img id="img_bello" src="http://7xlago.com2.z0.glb.qiniucdn.com/img/BELLO.png">
+  </div>
+<div  class="btn_basic btn_record" ></div>
+<div id="btn_play" class="btn_basic btn_play"></div>
+<div class="btn_basic btn_pause"></div>
+<div class="btn_basic" id="beMinions"></div>
+<div id="recordAgain" class="verticalcenter">  > >  我也要玩 < < </div>
+<div class="text2">
+<p ><em>点击右上角分享扩大我们的数量吧!</em></p>
+</div>
+<div class="sperate"><img src="http://7xlago.com2.z0.glb.qiniucdn.com/img/left.png">  来twinkle遇见更多好玩的人  <img src="http://7xlago.com2.z0.glb.qiniucdn.com/img/right.png"></div>
+<div id="download" class="verticalcenter" onclick="getDownload()"> 下载twinkle客户端 </div>
+<div class="text"><p ><span class="you">你</span>是谁?怎么找到我们的?说话!快说话!</p>
+<p >想加入我们小黄人?</p>
+<p >看你长得也不像!说话!</p>
+<p >看看你会不会说我们的话!banana!</p>
+</div>
+<div class="text3"><p class="p1">关注我们的公众号 : twinkle</p>
+<p >并且在公众号下发送分享截图给我们</p>
+<p >我们就把自己送给你</p>
+</div>
+<img id="present_top" class="presents_img" src="http://7xlago.com2.z0.glb.qiniucdn.com/img/present_top.jpg">
+<img   id="present_bottom" class="presents_img" src="http://7xlago.com2.z0.glb.qiniucdn.com/img/present_bottom.jpg">
+</div>
+
+<div class="audio_minions"><audio preload="preload"  id="car_audio"  controls src={{.AudioUrl}} type="audio/mpeg" ></audio></div>
+
+    <script type="text/javascript">
+    var startTs = 0
+var IsRecoded = false
+var seconds = 0
+var timer 
+var localId
+var minionsId = 0
+var minionsId_forshare = {{.MinionsId}}
+var IsRecoding = false
+var minions = document.getElementById("beMinions")
+var playminions = document.getElementById("btn_play")
+var recordagain = document.getElementById("recordAgain")
+var bello = document.getElementById("img_bello")
+var timeWarn = document.getElementById("time_warn")
+var textRecord = document.querySelector(".text")
+var textPlay = document.querySelector(".text2")
+var imgQuestion = document.querySelector(".question_img")
+var spinner = document.querySelector(".spinner")
+var wrapper = document.querySelector(".wrapper")
+$(document).on('touchstart','.text3',function(e){　
+e.stopPropagation(); 
+  e.preventDefault(); 
+	return false
+});
+$(document).on('touchstart','.text2',function(e){　
+e.stopPropagation(); 
+  e.preventDefault(); 
+	return false
+});
+$(document).on('touchstart','.text',function(e){　
+e.stopPropagation(); 
+  e.preventDefault(); 
+	return false
+});
+
+
+minions.hidden = "hidden"
+timeWarn.hidden = "hidden"
+spinner.hidden = ""
+imgQuestion.hidden = "hidden"
+textRecord.hidden = "hidden"
+
+  img_speak.onload =  function (){    
+             var c=document.getElementById("canvas");
+              var ctx=c.getContext("2d");
+              ctx.drawImage(img_speak,0,0,284,150)
+
+              if (minions.hidden != true){
+                document.getElementById("canvas").hidden = "hidden"
+              }
+
+        }
+
+img_speak.src= "http://7xlago.com2.z0.glb.qiniucdn.com/img/speak.gif"
+$("document").ready(function(){
+    document.getElementById("img_speak").hidden = "hidden"
+      document.getElementById("timer").hidden = "hidden"
+    $(".btn_pause").attr("hidden","hidden")
+    $(".wave_img").attr("hidden","hidden")
+
+})
+  window.onload=function (){
+      preparePlay()
+      spinner.hidden = "hidden"
+      imgQuestion.src = "http://7xlago.com2.z0.glb.qiniucdn.com/img/question-high.gif"
+      recordagain.onclick = click_recordagain
+     }
+
+  function click_recordagain(e) {
+  document.getElementById('car_audio').hidden="hidden"
+  $(".audio_minions").attr("style","top:0;");
+  document.getElementById("img_speak").hidden = "hidden"
+document.getElementById('car_audio').pause(); 
+  minions.addEventListener("touchend", onRecordEnd, false)
+textRecord.hidden = ""
+recordagain.hidden = "hidden"
+textPlay.hidden = "hidden"
+minions.hidden = ""
+playminions.hidden = "hidden"
+bello.hidden = "hidden"
+imgQuestion.hidden = ""
+document.getElementById("canvas").hidden = "hidden"
+if (IsRecoded == false){
+  wx.startRecord({
+   success: function (res) {
+    
+      wx.stopRecord({
+      success: function (res) {
+        IsRecoded = true
+      },
+      fail: function (res) {
+     IsRecoded = true
+      }
+    });
+      },
+      cancel: function () {
+        alert('开启微信录音权限才能变身小黄人哦!');
+      }
+    })
+}
+
+}
+var onplayStart = function (e){
+document.getElementById("img_speak").hidden = ""
+document.getElementById("canvas").hidden = "hidden"
+}
+document.getElementById('car_audio').addEventListener("play", onplayStart, false)
+var onplayEnd = function (e){
+document.getElementById("img_speak").hidden = "hidden"
+document.getElementById("canvas").hidden = ""
+}
+document.getElementById('car_audio').addEventListener("ended", onplayEnd, false)
+
+playminions.onclick = function(e){
+
+	document.getElementById('car_audio').currentTime=0
+	    document.getElementById('car_audio').volume = 1
+    document.getElementById('car_audio').play();
+     document.addEventListener("WeixinJSBridgeReady", function () {
+        WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+  document.getElementById('car_audio').play();
+        });
+    }, false)
+    document.getElementById("canvas").hidden = "hidden"
+    document.getElementById("img_speak").hidden = "" 
+     e.stopPropagation(); 
+  e.preventDefault(); 
+return false
+}
+function setTimer(){
+  if (seconds >= 30){
+minions.removeEventListener("touchend", onRecordEnd, false)
+onRecordEnd()
+  }
+if (seconds >= 20){
+  timeWarn.hidden = ""
+  timeWarn.innerText =  29 - seconds + '"'
+}
+  seconds = seconds + 1
+  var  unit = seconds % 10
+  var decade = seconds / 10
+   document.getElementById("timer").innerText = "0 : " +parseInt(decade)  + unit
+ }
+
+function realend(){
+	document.getElementById('car_audio').hidden=""
+   $(".audio_minions").attr("style","");
+    minions.hidden = "hidden"
+  wx.stopRecord({
+      success: function (res) {
+      	 IsRecoded = true
+       IsRecoding =false
+        document.getElementById("timer").hidden = "hidden"
+  document.getElementById("timer").innerText = "0 : 00"
+   
+  window.clearInterval(timer)
+  timeWarn.hidden = "hidden"
+ seconds = 0
+ spinner.hidden = ""
+  $("#beMinions").attr("style","")
+  $(".wave_img").attr("hidden","hidden")
+        localId = res.localId;
+wx.uploadVoice({
+    localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
+    isShowProgressTips: 0, // 默认为1，显示进度提示
+        success: function (res) {
+        var serverId = res.serverId; // 返回音频的服务器端ID
+
+        var media = {MediaId:serverId,MinionsId:minionsId}
+        postData("/share/getmediaid",true,media,loadAudio)
+    }
+})
+      },
+      fail: function (res) {
+        minions.hidden = ""
+        alert(JSON.stringify(res));
+      }
+    })
+}
+
+$(document).on('click','.wrapper',function(e){　
+	if  (IsRecoding ==true){
+onRecordEnd()
+	}
+})
+
+ var onRecordEnd =function(e){
+ var newData = new Date()
+  if ((newData.getTime() - startTs) <1350){
+    $("#beMinions").attr("style","")
+     $(".wave_img").attr("hidden","hidden")
+  $(".question_img").removeAttr("hidden")
+  document.getElementById("timer").hidden = "hidden"
+  timeWarn.hidden = "hidden"
+  seconds = 0
+  window.clearInterval(timer)
+         wx.stopRecord({
+      success: function (res) {
+        IsRecoded = true
+        IsRecoding =false
+      },
+      fail: function (res) {
+     IsRecoded = true
+       IsRecoding =false
+      }
+    })
+
+    return
+  }
+  if  (IsRecoding ==false){
+ 		return 
+ 	}
+ setTimeout("realend()", 250 )
+}
+minions.ontouchstart = function(e){
+ var newData = new Date()
+ startTs = newData.getTime()
+  $("#beMinions").css({
+    "background-color":"grey",
+  "filter":"alpha(opacity=50)",
+"-moz-opacity":"0.5", 
+"opacity":"0.5",
+"-moz-border-radius": "50%", 
+"-webkit-border-radius": "50%" 
+  })
+  $(".wave_img").removeAttr("hidden")
+  $(".question_img").attr("hidden","hidden")
+timer = setInterval("setTimer()",1000)
+  document.getElementById("timer").hidden = ""
+	wx.startRecord({
+      cancel: function () {
+        alert('cancel');
+      },
+      success:function(){
+ IsRecoding =true
+      }
+    })
+ e.stopPropagation(); 
+  e.preventDefault(); 
+return false
+}
+
+minions.ontouch = function(e){
+ e.stopPropagation(); 
+  e.preventDefault(); 
+return false
+}
+minions.addEventListener("touchend", onRecordEnd, false)
+
+function preparePlay(){
+  spinner.hidden = "hidden"
+  playminions.hidden = ""
+  minions.hidden = "true"
+  bello.hidden = ""
+textPlay.hidden = ""
+textRecord.hidden = "hidden"
+recordagain.hidden = ""
+  $("#canvas").removeAttr("hidden")
+ var vc =document.querySelectorAll(".verticalcenter")
+for(var i=0; i<vc.length; i++) {
+  console.log(vc[0])
+  vc[i].style.cssText = "line-height:" + vc[i].clientHeight + "px;"
+}
+}
+
+ function initWxShare (url) {
+ 	if (IsRecoded == false) {
+ 		title ="我是小黄人"  + (3000+minionsId_forshare) +"号，你能听懂我说话吗？" 
+ 	}else {
+ 		title ="我是小黄人"  + (3000+minionsId)+"号，你能听懂我说话吗？" 
+ 	}
+   wx.onMenuShareTimeline({
+    title: title, // 分享标题
+    link:  url, // 分享链接
+    imgUrl: 'http://7xlago.com2.z0.glb.qiniucdn.com/img/icon.jpg', // 分享图标
+    success: function () { 
+    },
+    cancel: function () {        
+    }
+})
+wx.onMenuShareAppMessage({
+    title: title, // 分享标题
+    desc: title, // 分享描述
+    link:  url, // 分享链接
+    imgUrl: 'http://7xlago.com2.z0.glb.qiniucdn.com/img/icon.jpg', // 分享图标
+    type: '', // 分享类型,music、video或link，不填默认为link
+    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+    success: function () { 
+    },
+    cancel: function () { 
+    }
+})
+ }
+function loadAudio(josnResult){
+  initWxShare( window.location.host  + '/share/minions/'+josnResult.ShareId+"/")
+  document.getElementById('car_audio').src=josnResult.Url
+ document.getElementById('recordAgain').innerText=">> 点我重录 <<" 
+ setTimeout("preparePlay()",150)
+}
+
+    wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId:  {{.WxConfigs.AppId}}, // 必填，公众号的唯一标识
+        timestamp: {{.WxConfigs.Timestamp}}, // 必填，生成签名的时间戳
+        nonceStr: {{.WxConfigs.NonceStr}}, // 必填，生成签名的随机串
+        signature:  {{.WxConfigs.Signature}}, // 必填，签名，见附录1
+        jsApiList: {{.WxConfigs.JsApiList}} // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+
+    wx.ready(function(){
+initWxShare(window.location.host + window.location.pathname)
+})
+wx.error(function(res){
+
+   alert(res)
+})
+
+
+function getDownload() {
+
+  if (is_weixn()){
+    document.getElementById("mask").hidden = ""
+    document.getElementById("weixin").hidden = ""
+    document.getElementById("arrow_img").style.display = "block"
+  }else{
+      this.location.href="http://fusion.qq.com/app_download?appid=1104728184&u=2962421574&platform=qzone&via=QZ.MOBILEDETAIL.QRCODE"
+
+  }
+}
+function is_weixn(){
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+        return true;
+    } else {
+        return false;
+    }
+}
+function removemask(){
+    document.getElementById("mask").hidden = "hidden"
+    document.getElementById("weixin").hidden = "hidden"
+document.getElementById("arrow_img").style.display = "none"
+}
+
+function setCookie(name,value) 
+{ 
+    var Days = 90; 
+    var exp = new Date(); 
+    exp.setTime(exp.getTime() + Days*24*60*60*1000); 
+     document.cookie.setPath("/")
+    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString() +";path=/"; 
+  document.cookie.setPath("/")
+} 
+function getCookie(name) 
+{ 
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+ 
+    if(arr=document.cookie.match(reg))
+ 
+        return unescape(arr[2]); 
+    else 
+        return null; 
+} 
+function delCookie(name) 
+{ 
+    var exp = new Date(); 
+    exp.setTime(exp.getTime() - 1); 
+    var cval=getCookie(name); 
+    if(cval!=null) 
+        document.cookie= name + "="+cval+";expires="+exp.toGMTString(); 
+} 
+
+if (getCookie("minions.ID")!= null){
+	 minionsId =  Number(getCookie("minions.ID"))
+	 if (minionsId == 0){
+	 	getData("/share/getminonsid",true,setMinionsId)
+	 }
+}else{
+	getData("/share/getminonsid",true,setMinionsId)
+}
+
+function setMinionsId(josnResult){
+	minionsId = josnResult.Id
+	setCookie("minions.ID",minionsId)
+}
+    </script>
+</body>
+
+</html>
